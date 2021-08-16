@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import UserProvider from "./context/Context";
+import Aside from "./components/home/Aside";
+import TweetDetailContainer from "./components/home/Tweets/TweetDetailContainer";
+import TweetsContainer from "./components/home/Tweets/TweetsContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <Router>
+        <div className="home">
+          <Aside />
+          <Switch>
+            <Route path="/" exact component={TweetsContainer} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/tweet/:id" exact component={TweetDetailContainer} />
+          </Switch>
+          <Aside />
+        </div>
+      </Router>
+    </UserProvider>
   );
 }
 

@@ -1,0 +1,114 @@
+.login{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &-wrapper{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @media(max-width:1000px){
+            flex-direction: column;
+        }
+        .login-left{
+            background-image: url('https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png');
+            width: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            svg{
+                font-size: 380px;
+                position: absolute;
+                color: #ffff;
+            }
+        }
+        .login-right{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            width: 50%;
+            padding: 0px 40px;
+
+            .login-register{
+                display: flex;
+                flex-direction: column;
+
+                .login-button{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+                    width: 380px;
+                    border-radius: 20px;
+                    border: 1px solid rgb(207, 217, 222);
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 300ms ease-in-out;
+                    margin-bottom: 20px;
+                    &:hover{
+                        background-color: rgb(230, 230, 230);
+                    }
+
+                    svg{
+                        margin:0px 20px;
+                    }
+                }
+            }
+
+            h1{
+                margin-bottom: 40px;
+                font-size: 64px;
+                line-height: 84px;
+                white-space:pre-wrap;
+            }
+            h3{
+                margin-bottom: 20px;
+                font-size: 31px;
+            }
+
+            p{
+                width: 380px;
+                font-size: 13px;
+                margin-bottom: 20px;
+                span{
+                    cursor: pointer;
+                    color: $twitter;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+            & > svg{
+                font-size: 50px;
+                color: $twitter;
+            }
+        }
+    }
+
+    &-footer{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 15px 40px;
+        font-size: 12px;
+        color: gray;
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+            li{
+                margin-right: 20px;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

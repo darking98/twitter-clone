@@ -1,0 +1,86 @@
+.aside-container {
+  height: 100vh;
+    //min-width: 237px;
+    position: sticky;
+    top: 0px;
+    .aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    color: white;
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      justify-content: center;
+
+      :first-child {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      li {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        padding: 17px;
+        font-size: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        svg {
+          font-size: 25px;
+          margin-right: 20px;
+        }
+        &:hover {
+          color: $twitter;
+          background-color: #00abee3b;
+        }
+      }
+    }
+
+    &-profile {
+      width: 237px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px;
+      font-size: 14px;
+      border-radius: 40px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 150ms ease-in-out;
+
+      &:hover {
+        background-color: #00abee3b;
+      }
+      &-info {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        span {
+          opacity: 0.5;
+
+        }
+        img {
+          border-radius: 50%;
+          margin-right: 20px;
+        }
+        &-name{
+        width: 100%;
+          display: flex;
+          flex-direction: column;
+          word-wrap:break-word;
+          
+        }
+      }
+
+      svg {
+        font-size: 18px;
+      }
+    }
+  }
+}

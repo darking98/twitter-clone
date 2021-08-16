@@ -1,0 +1,609 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-wrapper {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .login-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.login-wrapper .login-left {
+  background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png");
+  width: 50%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.login-wrapper .login-left svg {
+  font-size: 380px;
+  position: absolute;
+  color: #ffff;
+}
+
+.login-wrapper .login-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 50%;
+  padding: 0px 40px;
+}
+
+.login-wrapper .login-right .login-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-wrapper .login-right .login-register .login-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  width: 380px;
+  border-radius: 20px;
+  border: 1px solid #cfd9de;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  margin-bottom: 20px;
+}
+
+.login-wrapper .login-right .login-register .login-button:hover {
+  background-color: #e6e6e6;
+}
+
+.login-wrapper .login-right .login-register .login-button svg {
+  margin: 0px 20px;
+}
+
+.login-wrapper .login-right h1 {
+  margin-bottom: 40px;
+  font-size: 64px;
+  line-height: 84px;
+  white-space: pre-wrap;
+}
+
+.login-wrapper .login-right h3 {
+  margin-bottom: 20px;
+  font-size: 31px;
+}
+
+.login-wrapper .login-right p {
+  width: 380px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.login-wrapper .login-right p span {
+  cursor: pointer;
+  color: #00acee;
+}
+
+.login-wrapper .login-right p span:hover {
+  text-decoration: underline;
+}
+
+.login-wrapper .login-right > svg {
+  font-size: 50px;
+  color: #00acee;
+}
+
+.login-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 15px 40px;
+  font-size: 12px;
+  color: gray;
+}
+
+.login-footer ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.login-footer ul li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.login-footer ul li:hover {
+  text-decoration: underline;
+}
+
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 300px;
+  padding-right: 500px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.aside-container {
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.aside-container .aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  color: white;
+}
+
+.aside-container .aside ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aside-container .aside ul :first-child:hover {
+  background-color: transparent;
+}
+
+.aside-container .aside ul li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 400;
+  padding: 17px;
+  font-size: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
+}
+
+.aside-container .aside ul li svg {
+  font-size: 25px;
+  margin-right: 20px;
+}
+
+.aside-container .aside ul li:hover {
+  color: #00acee;
+  background-color: #00abee3b;
+}
+
+.aside-container .aside-profile {
+  width: 237px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 17px;
+  font-size: 14px;
+  border-radius: 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
+}
+
+.aside-container .aside-profile:hover {
+  background-color: #00abee3b;
+}
+
+.aside-container .aside-profile-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.aside-container .aside-profile-info span {
+  opacity: 0.5;
+}
+
+.aside-container .aside-profile-info img {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.aside-container .aside-profile-info-name {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  word-wrap: break-word;
+}
+
+.aside-container .aside-profile svg {
+  font-size: 18px;
+}
+
+.tweets-container {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.tweets-container .tweets-header {
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+  font-size: 13px;
+  padding: 20px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.tweets-container .tweets-header svg {
+  font-size: 30px;
+}
+
+.tweets-container .tweet-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+  word-break: break-all;
+}
+
+.tweets-container .tweet-box .tweet-image img {
+  border-radius: 50%;
+}
+
+.tweets-container .tweet-box .send-tweet {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0px 20px;
+}
+
+.tweets-container .tweet-box .send-tweet textarea {
+  resize: none;
+  font-size: 18px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  white-space: wrap;
+}
+
+.tweets-container .tweet-box .send-tweet textarea:focus {
+  padding: 30px 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+}
+
+.tweets-container .tweet-box .send-tweet textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.tweets-container .tweet-box .send-tweet .tweet-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+
+.tweets-container .tweet-box .send-tweet .tweet-footer button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #00acee;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+.tweets-container .tweet-box .send-tweet .tweet-footer .tweet-icons svg {
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+  color: #00acee;
+}
+
+.tweet {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+  padding: 10px;
+  background-color: black;
+  word-break: break-all;
+}
+
+.tweet:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.tweet-image img {
+  border-radius: 50%;
+}
+
+.tweet .tweet-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+}
+
+.tweet .tweet-header:hover > h4 {
+  text-decoration: underline;
+}
+
+.tweet .tweet-header p {
+  margin-left: 10px;
+  opacity: 0.6;
+}
+
+.tweet-info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 20px;
+}
+
+.tweet-info .tweet-text {
+  font-size: 14px;
+  padding: 10px 0px;
+}
+
+.tweet-reactions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tweet-reactions .tweet-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 7px;
+  font-size: 17px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tweet-reactions .tweet-icon span {
+  margin-left: 5px;
+}
+
+.tweet-reactions .tweet-icon svg:hover {
+  background-color: transparent;
+}
+
+.tweet-reactions :first-child:hover {
+  background-color: rgba(24, 161, 242, 0.2);
+}
+
+.tweet-reactions :first-child:hover svg {
+  color: #1da1f2;
+}
+
+.tweet-reactions :nth-child(2):hover {
+  background-color: rgba(23, 191, 99, 0.2);
+}
+
+.tweet-reactions :nth-child(2):hover svg {
+  color: #17bf63;
+  background-color: transparent;
+}
+
+.tweet-reactions :nth-child(3):hover {
+  background-color: rgba(224, 36, 94, 0.2);
+}
+
+.tweet-reactions :nth-child(3):hover svg {
+  color: #e0245e;
+  background-color: transparent;
+}
+
+.tweet-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 20px 0px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+  word-break: break-all;
+}
+
+.tweet-detail .tweet-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.tweet-detail .tweet-header .tweet-info {
+  cursor: pointer;
+}
+
+.tweet-detail .tweet-header .tweet-info:hover > h4 {
+  text-decoration: underline;
+}
+
+.tweet-detail .tweet-header .tweet-info p {
+  opacity: 0.4;
+}
+
+.tweet-detail-text {
+  margin: 30px 0px;
+}
+
+.tweet-detail .tweet-detail-likes {
+  padding: 12px 0px;
+  border-top: 1px solid rgba(255, 255, 255, 0.281);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+}
+
+.tweet-detail .tweet-detail-likes span {
+  opacity: 0.8;
+  font-weight: 100;
+}
+
+.tweet-detail .tweet-detail-likes p {
+  font-weight: 800;
+}
+
+.tweet-detail .tweet-reactions {
+  padding: 10px 0px;
+}
+/*# sourceMappingURL=styles.css.map */
