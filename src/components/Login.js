@@ -1,7 +1,7 @@
 import React,{useContext, useEffect} from 'react'
-import {AiOutlineTwitter, AiFillApple} from 'react-icons/ai'
+import {AiOutlineTwitter} from 'react-icons/ai'
 import {FcGoogle} from 'react-icons/fc'
-import { UserContext } from '../context/Context'
+import { UserContext } from '../context/UserContext'
 import { useHistory } from 'react-router'
 const Login = () => {
 
@@ -12,6 +12,7 @@ const Login = () => {
             history.push('/')
         }
         unsuscribe()
+        
     })
     return (
         <div className="login">
@@ -27,10 +28,6 @@ const Login = () => {
                         <div className="login-button" onClick={handleSignIn}>
                             <FcGoogle/>
                             Registrarse con Google
-                        </div>
-                        <div className="login-button">
-                            <AiFillApple/>
-                            Registrarse con Apple
                         </div>
                     </div>
                     <p>Al registrarte, aceptas los <span>Términos de servicio</span> y la <span>Política de privacidad</span>, incluida la política de <span>Uso de Cookies</span>.</p>

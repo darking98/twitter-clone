@@ -1,60 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, {  useContext } from "react";
 import { BsChat } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart, AiOutlineRetweet } from "react-icons/ai";
-import { collection } from "../../../firebase/firebase";
+import { TweetContext } from "../../../context/TweetContext";
+import { useHistory } from "react-router";
 const TweetDetail = ({ tweet, user, id }) => {
-  const [isLiked, setIsLiked] = useState(false);
-
-  useEffect(() => {
-    collection.onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.id === id) {
-          if (
-            doc
-              .data()
-              .usersLiked.find((element) => user && element === user.uid)
-          ) {
-            setIsLiked(true);
-            return;
-          }
-        }
-      });
-    });
-  });
-
-  const handleLike = () => {
-    collection.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.id === id) {
-          let query = collection.doc(doc.id);
-          if (isLiked) {
-            query = query.update({
-              likes: doc.data().likes - 1,
-              usersLiked: doc
-                .data()
-                .usersLiked.filter((element) => element !== user.uid),
-            });
-            setIsLiked(false);
-          } else {
-            query = query.update({
-              likes: doc.data().likes + 1,
-              usersLiked: [...doc.data().usersLiked, user.uid],
-            });
-          }
-          query.then(() => {
-            console.log("actualizado");
-          });
-        }
-      });
-    });
-  };
+  
+  const { useIsLiked, handleLike } = useContext(TweetContext);
+  const liked = useIsLiked(user, id);
+  const history = useHistory();
+  
+  
   return (
     <div className="tweet-detail ">
       <div className="tweet-header">
         <div className="tweet-image">
           <img src={tweet.photoURL} alt="" height="48px" />
         </div>
-        <div className="tweet-info">
+        <div className="tweet-info" onClick={() => history.push(`/user/${tweet.uid}`)}>
           <h4>{tweet.displayName}</h4>
           <p>{`@${tweet.uid}`}</p>
         </div>
@@ -76,8 +38,8 @@ const TweetDetail = ({ tweet, user, id }) => {
         <div className="tweet-icon">
           <AiOutlineRetweet />
         </div>
-        <div className="tweet-icon" onClick={handleLike}>
-          {isLiked ? (
+        <div className="tweet-icon" onClick={() => handleLike(liked, id, user)}>
+          {liked ? (
             <AiFillHeart style={{ color: "rgb(224,36,94)" }} />
           ) : (
             <AiOutlineHeart />

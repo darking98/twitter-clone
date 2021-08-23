@@ -1,77 +1,74 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsChat } from "react-icons/bs";
+import { firebaseTweets } from "../../../firebase/firebase";
 import { AiOutlineHeart, AiFillHeart, AiOutlineRetweet } from "react-icons/ai";
-import { collection } from "../../../firebase/firebase";
-import { UserContext } from "../../../context/Context";
+import { UserContext } from "../../../context/UserContext";
 import { useHistory } from "react-router-dom";
+import { TweetContext } from "../../../context/TweetContext";
 
-const Tweet = ({ tweet, id }) => {
+const Tweet = ({
+  tweet,
+  id,
+  showModal,
+  setShowModal,
+  setTweetComment,
+  commentId,
+}) => {
   const { user } = useContext(UserContext);
+  const { useIsLiked, handleLike } = useContext(TweetContext);
   const history = useHistory();
-  const [isLiked, setIsLiked] = useState(false);
+  const liked = useIsLiked(user, id, commentId);
+  const [comments, setComments] = useState();
 
-  useEffect(() => {
-    collection.onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.id === id) {
-          if (doc.data().usersLiked.find((element) => element === user.uid)) {
-            setIsLiked(true);
-            return;
-          }
-        }
-      });
-    });
-  }, []);
-
-  const handleLike = () => {
-    collection.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.id === id) {
-          let query = collection.doc(doc.id);
-          if (isLiked) {
-            query = query.update({
-              likes: doc.data().likes - 1,
-              usersLiked: doc
-                .data()
-                .usersLiked.filter((element) => element !== user.uid),
-            });
-            setIsLiked(false);
-          } else {
-            query = query.update({
-              likes: doc.data().likes + 1,
-              usersLiked: [...doc.data().usersLiked, user.uid],
-            });
-          }
-          query.then(() => {
-            console.log("actualizado");
-          });
-        }
-      });
-    });
+  const handleComment = () => {
+    setShowModal(!showModal);
+    setTweetComment(id);
   };
 
+  useEffect(() => {
+    if(commentId) return
+    firebaseTweets
+      .doc(id)
+      .collection("comments")
+      .get()
+      .then((snapshot) => setComments(snapshot.docs.length));
+  }, []);
+
   return (
-    <div className="tweet">
+    <div className={showModal ? "tweet" : "tweet tweet-animation"}>
       <div className="tweet-image">
         <img src={tweet.photoURL} alt="" height="48px" width="48px" />
       </div>
       <div className="tweet-info">
-        <div className="tweet-header" onClick={() => history.push(`/user/${tweet.uid}`)}>
+        <div
+          className="tweet-header"
+          onClick={() => history.push(`/user/${tweet.uid}`)}
+        >
           <h4>{tweet.displayName}</h4>
           <p>{`@${tweet.uid}`}</p>
         </div>
-        <div className="tweet-text" onClick={() => history.push(`/tweet/${id}`)}>
+        <div
+          className="tweet-text"
+          onClick={() => history.push(`/tweet/${id}`)}
+        >
           {tweet.text}
         </div>
         <div className="tweet-reactions">
-          <div className="tweet-icon">
-            <BsChat />{tweet.comments.length === 0 && tweet.comments.length}
+          <div
+            className="tweet-icon"
+            onClick={setTweetComment && handleComment}
+          >
+            <BsChat />
+            {comments && comments}
           </div>
           <div className="tweet-icon">
             <AiOutlineRetweet /> {tweet.retweets > 0 && tweet.retweets}
           </div>
-          <div className="tweet-icon" onClick={handleLike}>
-            {isLiked ? (
+          <div
+            className="tweet-icon"
+            onClick={() => handleLike(liked, id, user, commentId)}
+          >
+            {liked ? (
               <AiFillHeart style={{ color: "rgb(224,36,94)" }} />
             ) : (
               <AiOutlineHeart />

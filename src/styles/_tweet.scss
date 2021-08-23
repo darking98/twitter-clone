@@ -92,3 +92,19 @@
         }
     }
 }
+
+.tweet-animation{
+    animation: tweetAnimation 400ms ease-in-out;
+
+}
+
+@keyframes tweetAnimation {
+    from{
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

@@ -18,7 +18,8 @@ const getFirestore = () => {
     return firebase.firestore(app)
 }
 export const db = getFirestore()
-export const collection = db.collection("tweets");
+export const firebaseTweets = db.collection("tweets");
+export const firebaseComments = db.collection("comments");
 export const signInWithGoogle = async () => {
 
     const provider = new firebase.auth.GoogleAuthProvider();
