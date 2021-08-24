@@ -6,6 +6,15 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
 .login {
   height: 100vh;
   width: 100%;
@@ -194,6 +203,12 @@
   color: white;
 }
 
+@media (max-width: 1200px) {
+  .home {
+    padding: 0;
+  }
+}
+
 .home-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -236,6 +251,14 @@
           justify-content: center;
 }
 
+@media (max-width: 1000px) {
+  .aside-container .aside ul {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .aside-container .aside ul :first-child:hover {
   background-color: transparent;
 }
@@ -259,6 +282,12 @@
   transition: 150ms ease-in-out;
 }
 
+@media (max-width: 1000px) {
+  .aside-container .aside ul li {
+    padding: 17px 0px;
+  }
+}
+
 .aside-container .aside ul li a {
   width: 100%;
   text-decoration: none;
@@ -270,13 +299,25 @@
   margin-right: 20px;
 }
 
+@media (max-width: 1000px) {
+  .aside-container .aside ul li svg {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .aside-container .aside ul li span {
+    display: none;
+  }
+}
+
 .aside-container .aside ul li:hover {
   color: #00acee;
   background-color: #00abee3b;
 }
 
 .aside-container .aside-profile {
-  width: 237px;
+  max-width: 237px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,6 +334,12 @@
   cursor: pointer;
   -webkit-transition: 150ms ease-in-out;
   transition: 150ms ease-in-out;
+}
+
+@media (max-width: 1000px) {
+  .aside-container .aside-profile {
+    padding: 0px;
+  }
 }
 
 .aside-container .aside-profile:hover {
@@ -318,6 +365,12 @@
   margin-right: 20px;
 }
 
+@media (max-width: 1000px) {
+  .aside-container .aside-profile-info img {
+    margin: 0;
+  }
+}
+
 .aside-container .aside-profile-info-name {
   width: 100%;
   display: -webkit-box;
@@ -330,8 +383,20 @@
   overflow: hidden;
 }
 
+@media (max-width: 1000px) {
+  .aside-container .aside-profile-info-name {
+    display: none;
+  }
+}
+
 .aside-container .aside-profile svg {
   font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+  .aside-container .aside-profile svg {
+    display: none;
+  }
 }
 
 .tweets-container {
@@ -345,6 +410,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+}
+
+@media (max-width: 1000px) {
+  .tweets-container {
+    width: 100%;
+  }
 }
 
 .tweets-container .tweet-modal {
@@ -396,8 +467,20 @@
   cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+  .tweets-container .tweets-header {
+    font-size: 10px;
+  }
+}
+
 .tweets-container .tweets-header svg {
   font-size: 30px;
+}
+
+@media (max-width: 1000px) {
+  .tweets-container .tweets-header svg {
+    font-size: 20px;
+  }
 }
 
 .tweet-box {
@@ -407,6 +490,12 @@
   padding: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.281);
   word-break: break-all;
+}
+
+@media (max-width: 1000px) {
+  .tweet-box {
+    padding: 5px;
+  }
 }
 
 .tweet-box .tweet-image img {
@@ -427,6 +516,12 @@
   padding: 0px 20px;
 }
 
+@media (max-width: 1000px) {
+  .tweet-box .send-tweet {
+    padding: 0px 10px;
+  }
+}
+
 .tweet-box .send-tweet textarea {
   resize: none;
   font-size: 18px;
@@ -436,6 +531,12 @@
   outline: none;
   color: white;
   white-space: wrap;
+}
+
+@media (max-width: 1000px) {
+  .tweet-box .send-tweet textarea {
+    font-size: 12px;
+  }
 }
 
 .tweet-box .send-tweet textarea:focus {
@@ -467,9 +568,24 @@
   font-weight: 600;
 }
 
+@media (max-width: 1000px) {
+  .tweet-box .send-tweet .tweet-footer button {
+    font-size: 10px;
+  }
+}
+
 .tweet-box .send-tweet .tweet-footer button:disabled {
   opacity: 0.7;
   cursor: auto;
+}
+
+.tweet-box .send-tweet .tweet-footer .tweet-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .tweet-box .send-tweet .tweet-footer .tweet-icons svg {
@@ -506,6 +622,19 @@
   font-size: 14px;
 }
 
+@media (max-width: 1000px) {
+  .tweet .tweet-header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 12px;
+  }
+  .tweet .tweet-header p {
+    margin: 0;
+  }
+}
+
 .tweet .tweet-header:hover > h4 {
   text-decoration: underline;
 }
@@ -513,6 +642,12 @@
 .tweet .tweet-header p {
   margin-left: 10px;
   opacity: 0.6;
+}
+
+@media (max-width: 1000px) {
+  .tweet .tweet-header p {
+    margin: 0;
+  }
 }
 
 .tweet-info {
@@ -530,6 +665,12 @@
 .tweet-info .tweet-text {
   font-size: 14px;
   padding: 10px 0px;
+}
+
+@media (max-width: 1000px) {
+  .tweet-info .tweet-text {
+    font-size: 12px;
+  }
 }
 
 .tweet-reactions {
@@ -558,6 +699,12 @@
   font-size: 17px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .tweet-reactions .tweet-icon {
+    font-size: 13px;
+  }
 }
 
 .tweet-reactions .tweet-icon span {
@@ -642,8 +789,20 @@
   font-size: 25px;
 }
 
+@media (max-width: 1000px) {
+  .tweet-detail-container svg {
+    font-size: 17px;
+  }
+}
+
 .tweet-detail-container .tweet-detail-text {
   font-size: 22px;
+}
+
+@media (max-width: 1000px) {
+  .tweet-detail-container .tweet-detail-text {
+    font-size: 15px;
+  }
 }
 
 .tweet-detail-comments {
@@ -658,6 +817,12 @@
       -ms-flex-align: center;
           align-items: center;
   font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+  .tweet-detail .tweet-header {
+    font-size: 11px;
+  }
 }
 
 .tweet-detail .tweet-header .tweet-info {
@@ -676,10 +841,22 @@
   margin: 30px 0px;
 }
 
+@media (max-width: 1000px) {
+  .tweet-detail-text {
+    font-size: 10px;
+  }
+}
+
 .tweet-detail .tweet-detail-likes {
   padding: 12px 0px;
   border-top: 1px solid rgba(255, 255, 255, 0.281);
   border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+}
+
+@media (max-width: 1000px) {
+  .tweet-detail .tweet-detail-likes {
+    font-size: 12px;
+  }
 }
 
 .tweet-detail .tweet-detail-likes span {
@@ -694,6 +871,12 @@
 .tweet-detail .tweet-reactions {
   border-top: 1px solid rgba(255, 255, 255, 0.281);
   padding: 10px 0px;
+}
+
+@media (max-width: 1000px) {
+  .tweet-detail .tweet-reactions .tweet-icon {
+    font-size: 14px;
+  }
 }
 
 .loader {

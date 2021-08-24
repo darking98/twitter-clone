@@ -9,6 +9,9 @@
     color: white;
     //width: 800px;
 
+    @media(max-width:1200px){
+        padding: 0;
+    }
     &-container{
         display: flex;
     }
