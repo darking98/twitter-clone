@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Login from "./components/Login";
 import {
-  HashRouter  as Router,
+  BrowserRouter  as Router,
   Route,
   Switch,
   Redirect,
