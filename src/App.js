@@ -19,13 +19,13 @@ function App() {
     <UserProvider>
       <Router>
         <Switch>
-          <Route path="/login" exact component={Login} />
+          <Route exact path="/login" component={Login} />
           <div className="home">
             <TweetProvider>
 
               <Aside />
               <Route exact path="/" component={TweetsContainer}/>
-              <Route path="/tweet/:id" exact component={TweetDetailContainer} />
+              <Route exact path="/tweet/:id"  component={TweetDetailContainer} />
 
             </TweetProvider>
           </div>
