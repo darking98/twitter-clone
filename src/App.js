@@ -19,12 +19,12 @@ function App() {
     <UserProvider>
       <Router>
         <Switch>
-          <Route exact path="/twitter-clone/login" component={Login} />
+          <Route exact path="/login" component={Login} />
           <div className="home">
             <TweetProvider>
 
               <Aside />
-              <Route exact path="/twitter-clone/" component={TweetsContainer}/>
+              <Route exact path="/" component={TweetsContainer}/>
               <Route exact path="/tweet/:id"  component={TweetDetailContainer} />
 
             </TweetProvider>
