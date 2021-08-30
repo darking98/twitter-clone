@@ -2,18 +2,21 @@ import React,{useContext, useEffect} from 'react'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {FcGoogle} from 'react-icons/fc'
 import { UserContext } from '../context/UserContext'
-import { useHistory } from 'react-router'
+import { useHistory, Redirect } from 'react-router'
 const Login = () => {
 
     const {handleSignIn,unsuscribe, user} = useContext(UserContext)
     const history = useHistory();
+    
     useEffect(() => {
         if(user){
             history.push('/')
+            unsuscribe()
         }
-        unsuscribe()
         
-    })
+    },[user])
+
+    console.log(user)
     return (
         <div className="login">
             <div className="login-wrapper">

@@ -5,18 +5,28 @@ import Tweet from "./Tweet";
 import { TweetContext } from "../../../context/TweetContext";
 import TweetComment from "./TweetComment";
 import { BiLoaderAlt } from "react-icons/bi";
+import { useHistory } from "react-router";
+import { UserContext } from "../../../context/UserContext";
 const TweetsContainer = () => {
   const { tweets, getAllTweets, handleSendTweet } = useContext(TweetContext);
+  const { user } = useContext(UserContext);
   //Single tweet
   //All tweets on firebase
   const [showModal, setShowModal] = useState(false);
   const [tweetComment, setTweetComment] = useState();
 
+  const history = useHistory();
+
+  console.log(user);
+  useEffect(() => {
+    if (!user) {
+      history.push("/login");
+    }
+  }, [user, history]);
+
   useEffect(() => {
     getAllTweets();
   }, []);
-
-  
 
   return (
     <div className="tweets-container">
@@ -28,7 +38,7 @@ const TweetsContainer = () => {
         <TweetBox handleSendTweet={handleSendTweet} />
         {tweets.length === 0 ? (
           <div className="loader">
-            <BiLoaderAlt/>
+            <BiLoaderAlt />
           </div>
         ) : (
           tweets.map((tweet) => (
