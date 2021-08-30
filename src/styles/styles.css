@@ -302,6 +302,7 @@ html {
 @media (max-width: 1000px) {
   .aside-container .aside ul li svg {
     margin: 0;
+    font-size: 18px;
   }
 }
 
@@ -354,6 +355,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding: 5px;
 }
 
 .aside-container .aside-profile-info span {
@@ -368,6 +370,8 @@ html {
 @media (max-width: 1000px) {
   .aside-container .aside-profile-info img {
     margin: 0;
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -409,7 +413,6 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -418,11 +421,26 @@ html {
   }
 }
 
-.tweets-container .tweet-modal {
-  width: 100%;
+.tweets-container .tweet-modal-container {
   position: absolute;
   left: 0;
-  top: 10%;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.582);
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tweets-container .tweet-modal {
   border-radius: 40px;
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.281);

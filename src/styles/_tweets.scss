@@ -3,16 +3,25 @@
     border: 1px solid $border;
     display: flex;
     flex-direction: column;
-    position: relative;
+    //position: relative;
 
     @media(max-width:1000px){
         width: 100%;
     }
-    .tweet-modal{
-        width: 100%;
+    .tweet-modal-container{
         position: absolute;
         left: 0;
-        top:10%;
+        top:0;
+        height:100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.582);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tweet-modal{
+        //width: 100%;
         //transform: translate(-50px, 50px);
         border-radius: 40px;
         padding: 5px;
