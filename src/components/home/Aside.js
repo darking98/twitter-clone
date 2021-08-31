@@ -4,13 +4,13 @@ import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import { asideItems } from "../../config/aside";
 const Aside = () => {
-  const { user } = useContext(UserContext);
+  const { user, signOut } = useContext(UserContext);
   return (
     <div className="aside-container">
       <div className="aside">
         <ul>
           {asideItems.map((element) => (
-            <li>
+            <li onClick={element.text === 'Salir' && signOut}>
               <Link to={user && element.text === 'Perfil' ? `/user/${user.uid}` : element.href ? element.href : "#"}>
                 {element.icon}
                 <span>{element.text}</span>

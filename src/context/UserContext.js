@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {signInWithGoogle, auth, firebaseTweets} from '../firebase/firebase'
+import {signInWithGoogle, auth, firebaseTweets, signOut} from '../firebase/firebase'
  
 
 export const UserContext = React.createContext();
@@ -22,7 +22,7 @@ const UserProvider = ({children}) => {
     }
 
     return (
-        <UserContext.Provider value={{handleSignIn,unsuscribe, user, firebaseTweets}}>
+        <UserContext.Provider value={{handleSignIn,unsuscribe, user, firebaseTweets, signOut}}>
             {children}
         </UserContext.Provider>
     )
