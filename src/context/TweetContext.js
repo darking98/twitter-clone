@@ -5,6 +5,7 @@ export const TweetContext = React.createContext();
 const TweetProvider = ({ children }) => {
   const [tweet, setTweet] = useState("");
   const [tweets, setTweets] = useState([]);
+  const[userTweets, setUserTweets] = useState([])
   const history = useHistory();
 
   const useIsLiked = (user, id, commentId) => {
@@ -50,6 +51,19 @@ const TweetProvider = ({ children }) => {
 
     return liked;
   };
+
+  const getUserTweets = (userId) => {
+    firebaseTweets.orderBy('createdAt').onSnapshot((snapshot) => {
+      const elements = snapshot.docs;
+      const tweets = elements.filter(doc => doc.data().uid === userId)
+      .map(doc => {
+        const data = {data:doc.data(), id:doc.id};
+        return data;
+        
+      }) 
+      setUserTweets(tweets);
+    })
+  }
 
   const getAllTweets = () => {
     firebaseTweets.orderBy("createdAt").onSnapshot((snapshot) => {
@@ -164,12 +178,14 @@ const TweetProvider = ({ children }) => {
       value={{
         tweet,
         tweets,
+        userTweets,
         getAllTweets,
         setTweet,
         handleSendTweet,
         useIsLiked,
         handleSendComment,
         handleLike,
+        getUserTweets
       }}
     >
       {children}

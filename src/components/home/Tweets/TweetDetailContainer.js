@@ -5,6 +5,7 @@ import { firebaseTweets } from "../../../firebase/firebase";
 import TweetDetail from "./TweetDetail";
 import { UserContext } from "../../../context/UserContext";
 import Tweet from "./Tweet";
+import TweetComment from "./TweetComment";
 
 const TweetDetailContainer = () => {
   const { id } = useParams();
@@ -12,6 +13,10 @@ const TweetDetailContainer = () => {
   const [tweet, setTweet] = useState({});
   const [comments, setComments] = useState([]);
   const { user } = useContext(UserContext);
+  const [showModal, setShowModal] = useState(false);
+  const [tweetComment, setTweetComment] = useState();
+
+  console.log(tweet)
 
   useEffect(() => {
     firebaseTweets.onSnapshot((snapshot) => {
@@ -45,7 +50,7 @@ const TweetDetailContainer = () => {
         <h2>Tweet</h2>
       </div>
       <div className="tweet-detail-container">
-        <TweetDetail tweet={tweet} user={user} id={id} />
+        <TweetDetail tweet={tweet} user={user} id={id} showModal={showModal} setShowModal={setShowModal} />
       </div>
       <div className="tweet-detail-comments">
         {comments &&
@@ -53,6 +58,21 @@ const TweetDetailContainer = () => {
             <Tweet tweet={element.data} id={id} commentId={element.id} />
           ))}
       </div>
+      {showModal && (
+        <TweetComment
+          showModal={showModal}
+          setShowModal={setShowModal}
+          tweetComment={id}
+        >
+          <Tweet
+            tweet={tweet}
+            id={id}
+            showModal={showModal}
+            setShowModal={setShowModal}
+            setTweetComment={setTweetComment}
+          />
+        </TweetComment>
+      )}
     </div>
   );
 };

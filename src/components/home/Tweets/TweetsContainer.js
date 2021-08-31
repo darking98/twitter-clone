@@ -15,6 +15,7 @@ const TweetsContainer = () => {
   const [showModal, setShowModal] = useState(false);
   const [tweetComment, setTweetComment] = useState();
 
+  console.log(tweets);
   const history = useHistory();
 
   console.log(user);

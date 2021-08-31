@@ -11,7 +11,7 @@ const Aside = () => {
         <ul>
           {asideItems.map((element) => (
             <li>
-              <Link to={element.href ? element.href : "#"}>
+              <Link to={user && element.text === 'Perfil' ? `/user/${user.uid}` : element.href ? element.href : "#"}>
                 {element.icon}
                 <span>{element.text}</span>
               </Link>

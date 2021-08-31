@@ -42,6 +42,9 @@
             border: none;
         }
     }
+    .profile{
+        justify-content: flex-start !important;
+    }
     .tweets-header{
         width: 100%;
         position: sticky;
@@ -52,7 +55,7 @@
         background-color: black;
         border-bottom: 1px solid $border;
         font-size: 13px;
-        padding: 20px;
+        padding: 10px;
         z-index: 99;
         cursor: pointer;
 

@@ -3,7 +3,7 @@ import { BsChat } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart, AiOutlineRetweet } from "react-icons/ai";
 import { TweetContext } from "../../../context/TweetContext";
 import { useHistory } from "react-router";
-const TweetDetail = ({ tweet, user, id }) => {
+const TweetDetail = ({ tweet, user, id, setShowModal, showModal }) => {
   
   const { useIsLiked, handleLike } = useContext(TweetContext);
   const liked = useIsLiked(user, id);
@@ -33,7 +33,7 @@ const TweetDetail = ({ tweet, user, id }) => {
       )}
       <div className="tweet-reactions">
         <div className="tweet-icon">
-          <BsChat />
+          <BsChat  onClick={() => setShowModal(!showModal)}/>
         </div>
         <div className="tweet-icon">
           <AiOutlineRetweet />

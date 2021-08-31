@@ -463,6 +463,12 @@ html {
   border: none;
 }
 
+.tweets-container .profile {
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
+}
+
 .tweets-container .tweets-header {
   width: 100%;
   position: -webkit-sticky;
@@ -480,7 +486,7 @@ html {
   background-color: black;
   border-bottom: 1px solid rgba(255, 255, 255, 0.281);
   font-size: 13px;
-  padding: 20px;
+  padding: 10px;
   z-index: 99;
   cursor: pointer;
 }
@@ -934,5 +940,73 @@ html {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.tweets-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+}
+
+.tweets-profile-cover {
+  background-image: url("https://elintransigente.com/wp-content/uploads/2020/09/twitter-logo-high-e1477757975960.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+
+.tweets-profile-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+}
+
+.tweets-profile-image {
+  display: inline-block;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-top: -50px;
+}
+
+.tweets-profile-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.tweets-profile-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.tweets-profile-name h3 {
+  font-size: 17px;
+}
+
+.tweets-profile-name p {
+  font-size: 12px;
+  opacity: 0.7;
 }
 /*# sourceMappingURL=styles.css.map */
